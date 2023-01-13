@@ -16,11 +16,29 @@
     </style>
 
 </head>
-<body>
+<body onload="getTime()">
     <h1>hello , {{x_name}}</h1>
+    <span>
     <p id="date">
         {{date}}
     </p>
+    </span>
+    <ul>
+        <li>
+            <a href="/stock" target="_blank">亞股首頁</a>
+        </li>
+    </ul>
+    <script>
+    const timeEl=document.querySelector("#date")
+    function getTime(){
+        let date=new Date();
+        timeEl.innerText = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}\
+    -${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
+        setTimeout(getTime,1000);
+    }
+    </script>
+
+
 </body>
 
 </html>
